@@ -1,0 +1,72 @@
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+public class age_calc{
+public static void main(String[]args){
+	int y,m,day;
+	Date date=new Date();
+	DateFormat dateFormat=new SimpleDateFormat("yyyyMMdd");
+   String formattedDate=dateFormat.format(date);
+ //  System.out.println(formattedDate); 
+   int d= Integer.parseInt(formattedDate);
+   int toy=d/10000;
+   int tom=(d-(toy*10000))/100;
+   int tody=(d- ((d/100)*100));
+   System.out.println("Age as on :"+toy+"-"+tom+"-"+tody);
+   // Inputing data from the user
+   Scanner sc= new Scanner(System.in);
+   System.out.println("enter year");
+   int fromy=sc.nextInt();
+   System.out.println("enter month");
+   int fromm=sc.nextInt();
+   System.out.println("enter days");
+  int fromd=sc.nextInt();
+  if(fromd>31|fromm>12)
+  {
+  if(fromd>31)
+  System.out.println("wrong day  entered");
+  else if(fromm>12)
+  System.out.println("wrong month entered");
+  //user inputs end with verifying  whether the entered date of birth is right or wrong
+  }
+  //Calculation of age 
+ /*current age is yyyy-mm-dd
+  *               2017-09-15
+  *               toy-tom-tody
+  *               this date is automatic and it does't need to get an input from user    
+  * by Yatish Rawat
+  *  Now date of birth of user is represented by yyyy-mm-dd
+  *                                             fromy-fromm-fromd 
+  *  
+  */
+	sc.close();
+if(tody>fromd)
+{
+day=tody-fromd;	
+
+}
+else
+{
+day=(tody+31)-fromd;
+tom--;
+}
+
+if(tom>fromm)
+{m=tom-fromm;
+	}
+else
+{
+m=(tom+12)-fromm;
+tody--;
+}
+y=toy-fromy;
+System.out.println("Years:"+y);
+System.out.println("months:"+m);
+System.out.println("days:"+day);
+
+  
+	}
+}
+	
